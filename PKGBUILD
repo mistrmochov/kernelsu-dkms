@@ -3,7 +3,7 @@
 
 _pkg=kernelsu
 pkgname=${_pkg}-dkms
-pkgver=3.2.4+gb48ca6ff+0+gb48ca6ff
+pkgver=3.2.4+gb4d174f+0+gb4d174ff
 _ver=$pkgver
 pkgrel=1
 _branch=waydroid
@@ -128,7 +128,7 @@ source=(
 
 sha256sums=(
   'SKIP'
-  'SKIP'
+  '50276e52fdb4adcb24c5fc3c86d9b2bd1926e7fe6c60c119dbe99ac67ad249bf'
   '3eaeaf5a2a5442204ae0cad3c4c25855a90e4e683da56579cc7eb2bada42ccb9'
   '05feaafbbac794a68c7eeea8c0a4c5616fc9f6ef7e4b7540baf3f5d43fad5fb0'
   'f01d10fbcfba1b83134746ccfdc7ef4ceb61fa43593b94f039eac3469637429c'
