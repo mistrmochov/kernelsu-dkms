@@ -166,9 +166,9 @@ package() {
     git remote set-url upstream "$_upstream"
   fi
 
-  git fetch --no-tags upstream main 2>/dev/null || true
+  git fetch --no-tags upstream dev 2>/dev/null || true
 
-  _base_commit=$(git merge-base HEAD upstream/main)
+  _base_commit=$(git merge-base HEAD upstream/dev)
   _count=$(git rev-list --count "$_base_commit" 2>/dev/null)
 
   _realver=$((_major * 10000 + _count))
