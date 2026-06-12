@@ -31,7 +31,7 @@ get_file() {
 }
 
 # Get latest upstream version
-url=https://github.com/tiann/$_pkg
+url=https://github.com/KernelSU-Next/KernelSU-Next
 
 _upstream_version=$(get_redirected "$url/releases/latest")
 _upstream_version=${_upstream_version##*/}
