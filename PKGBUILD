@@ -3,7 +3,7 @@
 
 _pkg=kernelsu
 pkgname=${_pkg}-dkms
-pkgver=3.2.0+gf07423d+0+gf07423db
+pkgver=3.2.0+gccbd7d9+0+gccbd7d9c
 _ver=$pkgver
 pkgrel=1
 _branch=waydroid
@@ -129,7 +129,7 @@ source=(
 sha256sums=(
   'SKIP'
   '50276e52fdb4adcb24c5fc3c86d9b2bd1926e7fe6c60c119dbe99ac67ad249bf'
-  '3eaeaf5a2a5442204ae0cad3c4c25855a90e4e683da56579cc7eb2bada42ccb9'
+  '20622786e0c96ba8f4ff17008c495189171844b870c68e92d45b6cf961a5c50a'
   '05feaafbbac794a68c7eeea8c0a4c5616fc9f6ef7e4b7540baf3f5d43fad5fb0'
   'f01d10fbcfba1b83134746ccfdc7ef4ceb61fa43593b94f039eac3469637429c'
 )
@@ -181,8 +181,11 @@ package() {
 
   cd "$srcdir"
 
+  ksu_git_tag="v${pkgver%%+*}"
+
   sed "s|@PKGVER@|${pkgver}|g;\
-    s|@KSU_GIT_VERSION@|${_count}|g;" "$(readlink -f dkms.conf)" > "$dest/dkms.conf"
+    s|@KSU_GIT_VERSION@|${_count}|g;\
+    s|@KSU_GIT_TAG@|${ksu_git_tag}|g;" "$(readlink -f dkms.conf)" > "$dest/dkms.conf"
 
   install -Dm644 "$(readlink -f Makefile)" "$dest/Makefile"
 
