@@ -3,14 +3,14 @@
 
 _pkg=kernelsu
 pkgname=${_pkg}-dkms
-pkgver=3.3.0+7+gfde078c9
+pkgver=3.4.0+32+gc001498d
 _ver=$pkgver
 pkgrel=1
 _branch=waydroid-experimental
 pkgdesc="A Kernel based root solution for Android. DKMS module for Container-based solutions such as Waydroid."
 arch=('any')
-url="https://github.com/supechicken/KernelSU"
-_upstream="https://github.com/tiann/$_pkg.git"
+url="https://github.com/mistrmochov/KernelSU-Next"
+_upstream="https://github.com/KernelSU-Next/KernelSU-Next"
 license=('GPL-2.0-only')
 depends=('dkms')
 optdepends=('modloader')
