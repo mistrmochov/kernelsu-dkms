@@ -197,6 +197,7 @@ package() {
 	install -Dm755 release/ksuinit "$pkgdir/usr/bin/kernelsu-loader"
 
 	# Install load script (for modloader)
+  cd "$srcdir"
 	mkdir -p "$pkgdir/usr/bin"
 	install -Dm755 "$(readlink -f load-kernelsu.in)" "$pkgdir/usr/bin/load-kernelsu"
 }
