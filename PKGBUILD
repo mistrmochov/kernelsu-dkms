@@ -3,7 +3,7 @@
 
 _pkg=kernelsu
 pkgname=${_pkg}-dkms
-pkgver=3.4.0+33+g8a9412ea
+pkgver=3.4.0+35+g60060a4b
 _ver=$pkgver
 pkgrel=1
 _branch=waydroid-experimental
