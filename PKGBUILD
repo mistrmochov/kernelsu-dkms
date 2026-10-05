@@ -121,7 +121,6 @@ export DLAGENTS="shallowclone::$(realpath "./DLAGENTS") %u %o"
 source=(
 	"${_pkg}::git+${url}#branch=${_branch}"
 	'Makefile'
-	'0001-Patch-Kbuild-for-dkms.patch'
 	'dkms.conf'
 	'00-kernelsu.conf'
 	'load-kernelsu.in'
@@ -130,7 +129,6 @@ source=(
 sha256sums=(
 	'SKIP'
 	'a836794d044068ee44f0e60b4f45f4f58e810a23e79cb800b4cba1dd9004e369'
-	'a45b6d9b38cc0fa06ca3984999ddd6940f4b4e2a84a4fccbf7801784903ef762'
 	'0bb3096d98e5ac4539d9b074ff4331874713100972326a410a1068d262e19eba'
 	'05feaafbbac794a68c7eeea8c0a4c5616fc9f6ef7e4b7540baf3f5d43fad5fb0'
 	'f01d10fbcfba1b83134746ccfdc7ef4ceb61fa43593b94f039eac3469637429c'
@@ -152,7 +150,6 @@ pkgver() {
 
 prepare() {
 	cd "$srcdir/$_pkg"
-	git apply "$srcdir/0001-Patch-Kbuild-for-dkms.patch"
 }
 
 build() {
@@ -183,8 +180,11 @@ package() {
 
 	echo "ksu git ver: $_count" >&2
 
+  ksu_git_tag="v${pkgver%%+*}"
+
 	sed "s|@PKGVER@|${pkgver}|g;\
-    s|@KSU_GIT_VERSION@|${_count}|g;" "$(readlink -f dkms.conf)" >"$dest/dkms.conf"
+    s|@KSU_GIT_VERSION@|${_count}|g;\
+    s|@KSU_GIT_TAG@|${ksu_git_tag}|g;" "$(readlink -f dkms.conf)" >"$dest/dkms.conf"
 
 	install -Dm644 "$(readlink -f Makefile)" "$dest/Makefile"
 
